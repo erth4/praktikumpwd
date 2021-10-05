@@ -16,4 +16,4 @@ while($isi = fgets($fp, 80)) {
 }
 
 echo '</table>';
-echo '<a href="guestbook.php">Klik Disini </a>Isi Form Buku Tamu';
+echo '<a href="tampilan.html">Klik Disini </a>Isi Form Buku Tamu';
