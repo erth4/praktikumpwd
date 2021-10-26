@@ -14,30 +14,36 @@
 <body>
     <?php
 
+    $db = mysqli_connect("localhost", "root", "", "pwd4", "3306");
     // define variables and set to empty values
     $namaErr = $emailErr = $genderErr = $websiteErr = "";
     $nama = $email = $gender = $comment = $website = "";
+    $statusErr = false;
 
     if ($_SERVER['REQUEST_METHOD'] ==  'POST') {
         if (empty($_POST['nama'])) {
             $namaErr = "Nama harus diisi";
+            $statusErr = true;
         } else {
             $nama = test_input($_POST['nama']);
         }
 
         if (empty($_POST['email'])) {
             $emailErr = "Email harus diisi";
+            $statusErr = true;
         } else {
 
             $email = test_input($_POST['email']);
             // check if email address is well-formed
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $emailErr = "Email tidak sesuai format";
+                $statusErr = true;
             }
         }
 
         if (empty($_POST['website'])) {
             $websiteErr = "Website harus diisi";
+            $statusErr = true;
         } else {
             $website = test_input($_POST['website']);
         }
@@ -50,9 +56,17 @@
 
         if (empty($_POST['gender'])) {
             $genderErr = "Gender harus diisi";
+            $statusErr = true;
         } else {
             $gender = test_input($_POST['gender']);
         }
+
+        if (false == $statusErr) {
+            $sql = "INSERT INTO comments(nama, email, website, comment, gender)
+                    VALUES('$nama', '$email', '$website', '$comment', '$gender')";
+            $insert = mysqli_query($db, $sql);
+        }
+
 
     }
 
