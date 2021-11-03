@@ -16,6 +16,7 @@
         $no = 1;
         while($r = mysqli_fetch_array($tampil)) {
             echo '<tr>
+                    <td>'.$no.'</td>
                     <td>'.$r['id_user'].'</td>
                     <td>'.$r['nama_lengkap'].'</td>
                     <td>'.$r['email'].'</td>
