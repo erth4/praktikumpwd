@@ -20,10 +20,14 @@ if ($_POST['captcha_code'] == $_SESSION['captcha_code']) {
         
         $_SESSION['id_user'] = $r['id_user'];
         $_SESSION['passuser'] = $r['password'];
+        $_SESSION['email'] = $r['email'];
+        $_SESSION['phone'] = $r['phone'];
 
         echo 'User Berhasil Login<br/>';
         echo 'Id user : ' . $_SESSION['id_user'] . '<br/>';
         echo 'Password : ' . $_SESSION['passuser'] . '<br/>';
+        echo 'Email : ' . $_SESSION['email'] . '<br/>';
+        echo 'Phone : ' . $_SESSION['phone'] . '<br/>';
         echo '<a href="logout.php">Logout</a><br/>';
 
     } else {
