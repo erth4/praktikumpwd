@@ -14,6 +14,7 @@ $result = mysqli_query($con, "SELECT * FROM mahasiswa");
 </head>
 <body>
 	<a href="tambah.php">Tambah Data Baru</a>
+	<a href="cetak.php" target="_blank">Cetak PDF</a>
 	<table width="80%" border="1">
 		<tr>
 			<th>NIM</th>
